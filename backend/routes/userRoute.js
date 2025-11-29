@@ -1,5 +1,5 @@
 import express from "express";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";   // ✅ changed here
 import { v4 as uuidv4 } from "uuid";
 import { users } from "../models/userSchema.js";
 
@@ -20,7 +20,7 @@ userRoute.post("/register", async (req, res) => {
       return res.status(409).json({ message: "Email already registered" });
     }
 
-    const hashPassword = await bcrypt.hash(password, 10);
+    const hashPassword = await bcrypt.hash(password, 10);   // works same
     const userId = uuidv4();
 
     const user = new users({
