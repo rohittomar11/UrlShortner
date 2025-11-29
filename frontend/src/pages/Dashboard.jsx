@@ -7,7 +7,7 @@ import { useState } from "react";
 const Dashboard = () => {
   const [link, setLink] = useState("");
   const { register, handleSubmit, reset } = useForm();
-
+   const API = import.meta.env.VITE_API_URL;
   const submitLink = async (data) => {
     try {
       linkDataModel.link = data.link;
@@ -19,7 +19,7 @@ const Dashboard = () => {
       }
 
       const res = await axios.post(
-        "http://localhost:7777/links/link",
+        `{API}/links/link`,
         linkDataModel,
         {
           headers: {

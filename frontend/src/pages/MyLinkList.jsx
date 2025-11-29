@@ -5,14 +5,14 @@ export const MyLinkList = () => {
   const [allLinks, setAllLinks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
+ const API = import.meta.env.VITE_API_URL;
   const getLinkList = async () => {
     try {
       setLoading(true);
       setError("");
       const token = localStorage.getItem("token");
 
-      const res = await axios.get("http://localhost:7777/links/getAllLinks", {
+      const res = await axios.get(`${API}/links/getAllLinks`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

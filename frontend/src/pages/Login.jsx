@@ -16,11 +16,11 @@ export const Login = () => {
     handleSubmit,
   } = useForm();
   const [message, setMessage] = useState("");
-
+const API = import.meta.env.VITE_API_URL;
   const submit = async (data) => {
   try {
     const res = await axios.post(
-      "http://localhost:7777/user/login",
+      `{API}/user/login`,
       data // send form data directly
     );
 

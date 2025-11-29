@@ -11,13 +11,14 @@ export const Register = () => {
     formState: { errors },
   } = useForm();
   const [message, setMessage] = useState("");
+  const API = import.meta.env.VITE_API_URL;
 
   const formSubmit = async (data) => {
     try {
       console.log("Register data:", data);
 
       const res = await axios.post(
-        "http://localhost:7777/user/register",
+        `${API}/user/register`,
         data
       );
 

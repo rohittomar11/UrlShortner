@@ -49,25 +49,3 @@ const App = () => {
 export default App;
 
 
-// import Home from "./pages/Home";
-// import { Route,Routes } from "react-router-dom";
-
-// import Register from "./pages/Register";
-// import Dashboard from "./pages/Dashboard";
-// import Login from "./pages/Login";
-
-// const App = () => {
-//   return (
-//     <div>
-//       <Home />
-//       <Routes>
-//          <Route path="Dashboard" element={<Dashboard />} />
-//         <Route path="Login" element={<Login/>} />
-//         <Route path="Register" element={<Register />} />
-//         <Route path="Home" element={<Home />} />
-//       </Routes>
-//     </div>
-//   );
-// };
-
-// export default App;
