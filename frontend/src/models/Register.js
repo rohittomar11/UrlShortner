@@ -1,6 +1,6 @@
 export const registerModel = {
-  Name: "",
-  Email: "",
-  Password: "",
-  Date: ""
+  name: "",
+  email: "",
+  password: "",
+  date: ""
 };

@@ -1,4 +1,4 @@
 export const loginModel = {
-  Email: "",
-  Password: ""
+  email: "",
+  password: ""
 };

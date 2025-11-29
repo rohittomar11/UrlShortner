@@ -16,7 +16,10 @@ export const Register = () => {
     try {
       console.log("Register data:", data);
 
-      const res = await axios.post("http://localhost:7777/user/register", data);
+      const res = await axios.post(
+        "http://localhost:7777/user/register",
+        data
+      );
 
       setMessage(res.data.message || "Registered successfully!");
       if (res.status === 200) {
@@ -39,7 +42,9 @@ export const Register = () => {
         {message && (
           <p
             className={`mb-4 text-center ${
-              message.includes("success") ? "text-green-600" : "text-red-600"
+              message.toLowerCase().includes("success")
+                ? "text-green-600"
+                : "text-red-600"
             }`}
           >
             {message}
@@ -49,19 +54,21 @@ export const Register = () => {
         {/* Name */}
         <label className="block mb-2">Name</label>
         <input
-          {...register("Name", {
+          {...register("name", {
             required: "Name is required",
             maxLength: { value: 20, message: "Max 20 characters" },
           })}
           type="text"
           className="w-full border rounded-lg px-3 py-2 mb-2"
         />
-        {errors.Name && <span className="text-red-500">{errors.Name.message}</span>}
+        {errors.name && (
+          <span className="text-red-500">{errors.name.message}</span>
+        )}
 
         {/* Email */}
         <label className="block mb-2 mt-4">Email</label>
         <input
-          {...register("Email", {
+          {...register("email", {
             required: "Email is required",
             pattern: {
               value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
@@ -71,12 +78,14 @@ export const Register = () => {
           type="email"
           className="w-full border rounded-lg px-3 py-2 mb-2"
         />
-        {errors.Email && <span className="text-red-500">{errors.Email.message}</span>}
+        {errors.email && (
+          <span className="text-red-500">{errors.email.message}</span>
+        )}
 
         {/* Password */}
         <label className="block mb-2 mt-4">Password</label>
         <input
-          {...register("Password", {
+          {...register("password", {
             required: "Password is required",
             minLength: { value: 8, message: "Min 8 characters" },
             maxLength: { value: 15, message: "Max 15 characters" },
@@ -84,18 +93,20 @@ export const Register = () => {
           type="password"
           className="w-full border rounded-lg px-3 py-2 mb-2"
         />
-        {errors.Password && (
-          <span className="text-red-500">{errors.Password.message}</span>
+        {errors.password && (
+          <span className="text-red-500">{errors.password.message}</span>
         )}
 
         {/* Date */}
         <label className="block mb-2 mt-4">Date</label>
         <input
-          {...register("Date")}
+          {...register("date")}
           type="date"
           className="w-full border rounded-lg px-3 py-2 mb-4"
         />
-        {errors.Date && <span className="text-red-500">{errors.Date.message}</span>}
+        {errors.date && (
+          <span className="text-red-500">{errors.date.message}</span>
+        )}
 
         {/* Submit */}
         <button
@@ -110,5 +121,3 @@ export const Register = () => {
 };
 
 export default Register;
-
-
